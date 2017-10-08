@@ -1,12 +1,12 @@
-import { lightRed, searchBackgroundColor, searchDarkColor, white } from '../colors'
-import { changeBackgroundColor, changeColor } from '../functions'
+import { LIGHT_RED, SEARCH_BACKGROUND_COLOR, SEARCH_DARK_COLOR, WHITE } from '../colors'
+import { changeBackgroundColor, changeColor } from '../utils'
 
 export function personalizeSearch() {
-    changeBackgroundColor('.mcolor-busca-bright', searchBackgroundColor) //Altera cor do header
-    changeBackgroundColor('.mcolor-busca-dark', searchDarkColor)
-    changeBackgroundColor('.mcolor-action-btn', lightRed)
+    changeBackgroundColor('.mcolor-busca-bright', SEARCH_BACKGROUND_COLOR) //Altera cor do header
+    changeBackgroundColor('.mcolor-busca-dark', SEARCH_DARK_COLOR)
+    changeBackgroundColor('.mcolor-action-btn', LIGHT_RED)
 
     //Alteração de cores de labels
-    changeColor('#busca-promocode-label', white)
+    changeColor('#busca-promocode-label', WHITE)
 
 }

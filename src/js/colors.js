@@ -1,12 +1,10 @@
-export const lightRed = '#f6534c'
-export const white = '#fff'
-export const bgColorPage = '#302c29'
+export const LIGHT_RED = '#F6534C'
+export const WHITE = '#FFF'
+export const BG_COLOR_PAGE = '#302F29'
 
-export const searchBackgroundColor = '#483f38'
-export const searchDarkColor = '#201f1d'
+export const SEARCH_BACKGROUND_COLOR = '#483f38'
+export const SEARCH_DARK_COLOR = '#201F1D'
 
-export const tooltipBackgroundColor = '#493e38'
+export const TOOLTIP_BACKGROUND_COLOR = '#493E38'
 
-export const celularBackgroundColor = '#f6534c'
-
-export const betweenDatesCalendar = '#4f4f4f'
+export const BETWEEN_DATES_CALENDAR = '#4F4F4F'
