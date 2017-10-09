@@ -1,4 +1,5 @@
 import { LIGHT_RED, BG_PAGE_CONTENT, WHITE } from '../colors'
+import { hideElements, setWidth, changeColor } from '../utils'
 
 function adjustListagemContent () {
   const pageContent = document.getElementById('listagemHoteisContent')
@@ -16,7 +17,7 @@ function adjustItemHotel () {
     el.style.margin = '50px'
     el.style.backgroundColor = WHITE
     el.style.borderRadius = '10px'
-    // el.style.boxShadow = '0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset'
+    el.style.boxShadow = '10px 10px 34px -13px rgba(0,0,0,0.75);'
     el.style.margin = '10px'
     el.style.padding = '10px'
     el.style.paddingTop = '30px'
@@ -43,27 +44,15 @@ function adjustItemHotelContent () {
 }
 
 function removePercentualDesconto () {
-  const percentualDesconto = document.querySelectorAll('.itemVarPercentualDesconto')
-
-  percentualDesconto.forEach(el => {
-    el.style.display = 'none'
-  })
+  hideElements('.itemVarPercentualDesconto')
 }
 
 function changeValorWidth () {
-  const itemVarValorSemDesconto = document.querySelectorAll('.itemVarValorSemDesconto')
-
-  itemVarValorSemDesconto.forEach(el => {
-    el.style.width = 'unset'
-  })
+  setWidth('.itemVarValorSemDesconto', 'unset')
 }
 
 function removeBtnSelecionarAcomodacao () {
-  const itemBtnSelecionarAcomodacao = document.querySelectorAll('.itemBtnSelecionarAcomodacao')
-
-  itemBtnSelecionarAcomodacao.forEach(el => {
-    el.style.display = 'none'
-  })
+  hideElements('.itemBtnSelecionarAcomodacao')
 }
 
 function changeTelefoneHotel () {
@@ -75,11 +64,7 @@ function changeTelefoneHotel () {
 }
 
 function removeFormasDePagamento () {
-  const itemVarDescricaoFormasPagamento = document.querySelectorAll('.itemVarDescricaoFormasPagamento')
-
-  itemVarDescricaoFormasPagamento.forEach(el => {
-    el.style.display = 'none'
-  })
+  hideElements('.itemVarDescricaoFormasPagamento')
 }
 
 function adjustPageContent () {
@@ -91,15 +76,25 @@ function adjustPageContent () {
 }
 
 function changeIconColor () {
-  document.querySelectorAll('.mcolor-cliente-principal-text').forEach(el => {
-    el.style.color = LIGHT_RED
-  })
+  changeColor('.mcolor-cliente-principal-text', LIGHT_RED)
 }
 
 function adjustBlocoReserve () {
   document.querySelectorAll('.blocoReserve').forEach(el => {
     el.style.position = 'relative'
   })
+}
+
+function adjustImgHotelArrowRight () {
+  const arrowRight = document.querySelectorAll('.img-hotel-arrow-right')
+
+  arrowRight.forEach(el => {
+    el.style.left = '220px'
+  })
+}
+
+function adjustImagesHotel () {
+  setWidth('.varImgHotel, .slider-imagens-hotel, .slide img', '260px')
 }
 
 export function personalizeHotels () {
@@ -109,4 +104,7 @@ export function personalizeHotels () {
   adjustPageContent()
   adjustBlocoReserve()
   changeIconColor()
+
+  adjustImgHotelArrowRight()
+  adjustImagesHotel()
 }
