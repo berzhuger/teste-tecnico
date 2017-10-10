@@ -1,5 +1,5 @@
 import { LIGHT_RED, BG_PAGE_CONTENT, WHITE } from '../colors'
-import { hideElements, setWidth, changeColor } from '../utils'
+import { hideElements, setWidth, changeColor, showElements } from '../utils'
 
 function adjustListagemContent () {
   const pageContent = document.getElementById('listagemHoteisContent')
@@ -56,11 +56,7 @@ function removeBtnSelecionarAcomodacao () {
 }
 
 function changeTelefoneHotel () {
-  const telefoneHotel = document.querySelectorAll('.itemVarTelefoneHotel')
-
-  telefoneHotel.forEach(el => {
-    el.style.display = 'block'
-  })
+  showElements('.itemVarDescricaoFormasPagamento')
 }
 
 function removeFormasDePagamento () {

@@ -61,14 +61,14 @@ function watchForSelection () {
   }
 }
 
-//Funções para alterar mostrar apenas 1 mês do calendário
+// Funções para alterar mostrar apenas 1 mês do calendário
 function changeCalendarWidth () {
   const calendar = document.getElementById('busca-calendario')
   calendar.style.width = '530px'
-  showOneMonth();
+  showOneMonth()
 }
 
-function showOneMonth() {
+function showOneMonth () {
   const firstMonth = document.getElementById('calendario-1')
   firstMonth.style.width = '100%'
 
@@ -77,7 +77,7 @@ function showOneMonth() {
 }
 
 export function personalizeCalendar () {
-  document.getElementById('busca-periodo-label').addEventListener('click', () => {
+  document.getElementById('busca-saida-label').addEventListener('click', () => {
     changeCalendarWidth()
         // Dias do calendário para branco, setando algumas propriedades da classe antiga.
     document.querySelectorAll('#busca-calendario .dia-semana').forEach(el => {

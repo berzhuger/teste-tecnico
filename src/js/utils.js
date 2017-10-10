@@ -7,12 +7,13 @@ export function changeColor (element, color) {
 }
 
 export function hideElements (element) {
-  document.querySelectorAll(element).forEach(el => el.style.display = 'none');
+  document.querySelectorAll(element).forEach(el => el.style.display = 'none')
+}
+
+export function showElements (element) {
+  document.querySelectorAll(element).forEach(el => el.style.display = 'block')
 }
 
 export function setWidth (element, width) {
-  console.log(element)
-  console.log(width)
-  console.log('------')
   document.querySelectorAll(element).forEach(el => el.style.width = width)
 }
