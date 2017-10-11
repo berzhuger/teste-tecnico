@@ -8,19 +8,25 @@ function formatModal () {
   modal.style.top = '0'
   modal.style.height = '100%'
   modal.style.width = '100%'
-  modal.style.overflowY = 'auto'
+  modal.style.overflowY = 'hidden'
   modal.style.backgroundColor = 'rgba(0, 0, 0, 0.5)'
 
-  // modal.style.display = 'none'
+  modal.style.display = 'none'
 }
 
 function formatModalContent () {
   const modalContent = document.querySelector('.modal-content')
 
   modalContent.style.backgroundColor = WHITE
-  modalContent.style.margin = '20% auto'
+  modalContent.style.margin = '15% auto'
   modalContent.style.padding = '50px'
-  modalContent.style.width = '70%'
+  modalContent.style.width = '50%'
+  modalContent.style.height = '400px'
+  modalContent.style.position = 'absolute'
+  modalContent.style.left = '20%'
+  modalContent.style.top = '-20%'
+  modalContent.style.overflow = 'auto'
+  modalContent.style.zIndex = '1000'
   modalContent.style.border = '0 1px 0 0 dotted black'
 }
 
@@ -44,7 +50,27 @@ function formatModalGrid () {
 function formatModalTitle () {
   const modalTitle = document.querySelector('.modal-title')
 
-  modalTitle.style.marginBottom = '15px'
+  modalTitle.style.marginBottom = '40px'
+}
+
+function listenersToClose () {
+  const modal = document.querySelector('.modal')
+  const close = document.querySelector('.btnClose')
+  console.log(close)
+  close.addEventListener('click', () => closeModal(modal))
+  window.addEventListener('click', (e) => outsideClick(e, modal))
+}
+
+function closeModal (modal) {
+  modal.style.display = 'none'
+  document.body.style.overflowY = 'auto'
+}
+
+function outsideClick (e, modal) {
+  if (e.target === modal) {
+    modal.style.display = 'none'
+    document.body.style.overflowY = 'auto'
+  }
 }
 
 export function createModal () {
@@ -57,7 +83,6 @@ export function createModal () {
           </div>
           <div class="modal-grid">
             <div class="promo">
-
             </div>
           </div>
         </div>
@@ -72,4 +97,6 @@ export function createModal () {
   formatBtnClose()
   formatModalGrid()
   formatModalTitle()
+
+  listenersToClose()
 }

@@ -1,5 +1,5 @@
 import { LIGHT_RED, BG_PAGE_CONTENT, WHITE } from '../colors'
-import { hideElements, setWidth, changeColor, showElements } from '../utils'
+import { hideElements, setWidth, changeColor, showElements, openModal } from '../utils'
 
 function adjustListagemContent () {
   const pageContent = document.getElementById('listagemHoteisContent')
@@ -86,11 +86,25 @@ function adjustImgHotelArrowRight () {
 
   arrowRight.forEach(el => {
     el.style.left = '220px'
+    el.style.zIndex = '1'
   })
 }
 
 function adjustImagesHotel () {
   setWidth('.varImgHotel, .slider-imagens-hotel, .slide img', '260px')
+}
+
+function changeTextPromos () {
+  const texts = document.querySelectorAll('.itemBtnMaisAcomodacoes')
+
+  texts.forEach(el => {
+    el.textContent = 'Ver promoções do hotel'
+    el.style.color = '#f6534e'
+    el.style.marginTop = '15px'
+
+    el.removeAttribute('onclick')
+    el.addEventListener('click', openModal)
+  })
 }
 
 export function personalizeHotels () {
@@ -103,4 +117,6 @@ export function personalizeHotels () {
 
   adjustImgHotelArrowRight()
   adjustImagesHotel()
+
+  changeTextPromos()
 }

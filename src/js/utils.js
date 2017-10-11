@@ -17,3 +17,11 @@ export function showElements (element) {
 export function setWidth (element, width) {
   document.querySelectorAll(element).forEach(el => el.style.width = width)
 }
+
+export function openModal () {
+  const modal = document.querySelector('.modal')
+
+  modal.style.display = 'block'
+
+  document.body.style.overflowY = 'hidden' // Tiro scroll do body
+}

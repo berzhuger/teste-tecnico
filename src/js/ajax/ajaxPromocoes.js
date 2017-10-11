@@ -1,24 +1,30 @@
-import { renderPromoTitle } from '../elements/promoElements'
+import {
+  createPromoTitle,
+  createDivPromo,
+  createDescription,
+  createOldPrice,
+  createNewPrice,
+  createButton
+} from '../elements/promoElements'
 
 function renderPromocoes (promos) {
   console.log(promos)
   for (let obj of promos) {
     const divPromo = createDivPromo()
-    const titulo = renderPromoTitle(obj.NomeTarifa)
+    divPromo.appendChild(createPromoTitle(obj.NomeTarifa))
 
-    divPromo.appendChild(titulo)
+    const descricoes = createDescription(obj.DescricaoTarifa)
+
+    for (let desc of descricoes) {
+      divPromo.appendChild(desc)
+    }
+
+    divPromo.appendChild(createOldPrice(obj.TipoMoeda, obj.ValorTarifaSemDesconto))
+    divPromo.appendChild(createNewPrice(obj.TipoMoeda, obj.ValorTarifa))
+    divPromo.appendChild(createButton(obj.CodigoHotel, obj.CodigoTarifa))
+
     document.querySelector('.modal-grid').appendChild(divPromo)
   }
-}
-
-function createDivPromo () {
-  const divPromo = document.createElement('div')
-
-  divPromo.style.flexGrow = '1'
-  divPromo.style.width = '33%'
-  divPromo.style.height = '250px'
-
-  return divPromo
 }
 
 export function getPromocoes () {
