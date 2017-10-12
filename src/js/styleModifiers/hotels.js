@@ -2,6 +2,7 @@ import { LIGHT_RED, BG_PAGE_CONTENT, WHITE } from '../colors'
 import { hideElements, setWidth, changeColor, showElements, openModal } from '../utils'
 
 function adjustListagemContent () {
+   // Faz a listagem de hoteis ficarem em grid lado a lado
   const pageContent = document.getElementById('listagemHoteisContent')
   pageContent.style.display = 'flex'
   pageContent.style.flexDirection = 'row'

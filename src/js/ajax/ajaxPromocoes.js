@@ -4,14 +4,18 @@ import {
   createDescription,
   createOldPrice,
   createNewPrice,
-  createButton
+  createButton,
+  createPopOver
 } from '../elements/promoElements'
 
+// Renderiza os dados da chamada ajax dentro do modal
 function renderPromocoes (promos) {
-  console.log(promos)
   for (let obj of promos) {
     const divPromo = createDivPromo()
-    divPromo.appendChild(createPromoTitle(obj.NomeTarifa))
+    const title = createPromoTitle(obj.NomeTarifa)
+    divPromo.appendChild(title)
+
+    title.appendChild(createPopOver(obj.RegrasTarifa))
 
     const descricoes = createDescription(obj.DescricaoTarifa)
 
@@ -28,6 +32,7 @@ function renderPromocoes (promos) {
 }
 
 export function getPromocoes () {
+  // Chamei apenas o id 1 pois não sabia o ID dos hoteis :/
   $.get('https://www.pmweb.com.br/teste-cro/promocoes/1.json')
     .then(renderPromocoes)
 }

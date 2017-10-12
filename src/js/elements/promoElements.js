@@ -1,3 +1,9 @@
+import { formatDivPopover,
+  formatQuestionPopover,
+  formatPopover,
+  formatPopoverText
+} from '../styleModifiers/popover'
+
 export function createDivPromo () {
   const divPromo = document.createElement('div')
 
@@ -39,7 +45,7 @@ export function createDescription (descriptions) {
 export function createOldPrice (currency, priceWithoutPromo) {
   const oldPrice = document.createElement('span')
 
-  oldPrice.textContent = `${currency} ${priceWithoutPromo}`
+  oldPrice.textContent = `${currency} ${priceWithoutPromo},00`
 
   oldPrice.style.textDecoration = 'line-through'
   oldPrice.style.color = '#989898'
@@ -50,7 +56,7 @@ export function createOldPrice (currency, priceWithoutPromo) {
 export function createNewPrice (currency, value, element) {
   const price = document.createElement('span')
 
-  price.textContent = `${currency} ${value}`
+  price.textContent = `${currency} ${value},00`
 
   price.style.padding = '5px'
   price.style.fontSize = '22px'
@@ -66,7 +72,7 @@ export function createButton (hotel, tarifa) {
   button.textContent = 'Reservar'
 
   button.style.display = 'block'
-  button.style.BorderRadius = '5px'
+  button.style.borderRadius = '5px'
   button.style.fontSize = '20px'
   button.style.backgroundColor = '#f6534c'
   button.style.padding = '10px'
@@ -76,4 +82,38 @@ export function createButton (hotel, tarifa) {
   button.addEventListener('click', () => window.alert(`Você reservou o hotel número ${hotel} com a tarifa ${tarifa}`))
 
   return button
+}
+
+function showPopover (popover) {
+  popover.style.display = 'block'
+}
+
+function hidePopover (popover) {
+  popover.style.display = 'none'
+}
+
+export function createPopOver (text) {
+  const div = document.createElement('div')
+  formatDivPopover(div)
+
+  const question = document.createElement('span')
+  question.classList.add('question')
+  question.textContent = '?'
+
+  formatQuestionPopover(question)
+
+  const popover = document.createElement('span')
+  formatPopover(popover)
+
+  const popoverText = document.createElement('span')
+  popoverText.textContent = text
+  formatPopoverText(popoverText)
+
+  popover.appendChild(popoverText)
+  question.appendChild(popover)
+  div.appendChild(question)
+
+  question.addEventListener('mouseover', () => showPopover(popover))
+  question.addEventListener('mouseout', () => hidePopover(popover))
+  return div
 }
