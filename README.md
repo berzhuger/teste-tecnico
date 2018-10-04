@@ -8,3 +8,4 @@
   * `npm run build` para obter o código completo, sem minificações
   * `npm run build:minify` para obter o código minificado
 4. Abrir a página <https://demo.letsbook.com.br/D/Reserva?cidade=NYC> e executar o código do arquivo /dist/bundle.js no console do navegador
+5. Seja feliz
